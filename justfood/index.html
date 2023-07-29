@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JustFood - Your Culinary Companion</title>
+  
+  <!-- Add your CSS stylesheets and JavaScript files here -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <header>
+    <h1>JustFood?</h1>
+    <strong>Your Culinary Companion</strong>
+  </header>
+
+  <main>
+    <section id="search-section">
+      <h3>Find Recipes with Your Ingredients</h3>
+      <form id="search-form">
+        <label for="ingredients">Enter your ingredients:</label>
+        <input type="text" id="ingredients" name="ingredients" required>
+        <button type="submit">Find Recipes</button>
+      </form>
+    </section>
+
+    <section id="results-section">
+      <h6>Personalized Recipe Suggestions</h6>
+      <!-- Results will be dynamically displayed here -->
+    </section>
+
+    <section id="preferences-section">
+      <h4>Choose Your Recipe Format</h4>
+      <div>
+        <input type="radio" id="text-recipe" name="format" value="text" checked>
+        <label for="text-recipe">Text Recipe</label>
+      </div>
+      <div>
+        <input type="radio" id="video-recipe" name="format" value="video">
+        <label for="video-recipe">Video Recipe</label>
+      </div>
+    </section>
+
+    <section id="community-section">
+      <h4>Join Our Cooking Community</h4>
+      <p>Share your recipes, tips, and connect with fellow food enthusiasts!</p>
+      <!-- Add community features and interaction using JavaScript -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 RecipeFinder360. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Replace 'your-api-key' with the provided API access key
+    const apiKey = 'bcc40ad957d94d794d9ee8b8619ded38f4d50144';
+
+    const searchForm = document.getElementById('search-form');
+    const resultsSection = document.getElementById('results-section');
+
+    searchForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(searchForm);
+      const ingredients = formData.get('ingredients');
+
+      try {
+        const response = await fetch(`bcc40ad957d94d794d9ee8b8619ded38f4d50144=${encodeURIComponent(ingredients)}&apiKey=${apiKey}`);
+        const data = await response.json();
+
+        // Clear previous results
+        resultsSection.innerHTML = '';
+
+        // Display recipe results
+        if (data && data.results.length > 0) {
+          const recipesList = document.createElement('ul');
+          data.results.forEach((recipe) => {
+            const recipeItem = document.createElement('li');
+            const recipeLink = document.createElement('a');
+            recipeLink.textContent = recipe.title;
+            recipeLink.href = recipe.sourceUrl;
+            recipeItem.appendChild(recipeLink);
+            recipesList.appendChild(recipeItem);
+          });
+          resultsSection.appendChild(recipesList);
+        } else {
+          resultsSection.innerHTML = '<p>No recipes found. Please try different ingredients.</p>';
+        }
+      } catch (error) {
+        console.error('Error fetching recipes:', error);
+        resultsSection.innerHTML = '<p>Oops! Something went wrong. Please try again later.</p>';
+      }
+    });
+  </script>
+</body>
+</html>
