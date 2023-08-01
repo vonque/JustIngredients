@@ -1,0 +1,81 @@
+
+main {
+    font-family: Arial, sans-serif;
+    width: fit-content;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url('frontpage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff; /* Set text color to white to be visible on the background image */
+}
+
+header {
+    background-color: #000000;
+    color: rgb(129, 206, 146);
+    padding: 10px;
+    text-align: center;
+}
+
+h1.title {
+    font-size: 35px;
+}
+
+/* Adding a background to the navbar */
+/* Adding a background to the navbar */
+.nav-links {
+    background-image: linear-gradient(to right, #1170c9 , #098873);
+    overflow: hidden;
+  }
+  
+  /* Styling the links inside the navbar */
+  .nav a {
+    display: block;
+    color: rgb(59, 41, 41);
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight:bolder;
+  }
+  
+  .nav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Adding an active class to highlight the current page */
+  .nav a.active {
+    background-color:#9FA4C4;
+    color:black;
+  }
+  .heading{
+    text-align:center; 
+  }
+  .content{
+    font-size: 20px; 
+  }
+  
+  
+  
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+footer {
+    text-align: center;
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+}
+
+@media only screen and (max-width : 200px) {
+    .nav {
+ float:center;
+}}
