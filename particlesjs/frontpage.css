@@ -1,81 +1,146 @@
-
-main {
-    font-family: Arial, sans-serif;
-    width: fit-content;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-image: url('frontpage.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #fff; /* Set text color to white to be visible on the background image */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
 }
-
-header {
-    background-color: #000000;
-    color: rgb(129, 206, 146);
-    padding: 10px;
-    text-align: center;
+:root{
+  --bg-color: #4c1a89;
+  --text-color: #fff;
+  --main-color: #19cc91;
+;
 }
-
-h1.title {
-    font-size: 35px;
-}
-
-/* Adding a background to the navbar */
-/* Adding a background to the navbar */
-.nav-links {
-    background-image: linear-gradient(to right, #1170c9 , #098873);
-    overflow: hidden;
-  }
+body{
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color)
   
-  /* Styling the links inside the navbar */
-  .nav a {
+
+}
+header{
+  position:fixed;
+  width: 100%;
+  top:0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  padding: 28px 12%;
+  transition: all .50s ease;
+}
+.logo{
+  display: flex;
+  align-items: center;
+}
+.logo i{
+  color: var(--main-color);
+  font-size: 28px;
+  margin-right: 3px;
+}
+.logo span{
+  color: var(--text-color);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.navbar{
+  display: flex;
+
+}
+.navbar a{
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 5px 0;
+  margin: 0px 30px;
+  transition: all .50s ease;
+  
+}
+.navbar a:hover{
+  color: var(--main-color);
+}
+.navbar a:active{
+  color: var(--main-color);
+}
+.main{
+  display: flex;
+  align-items: center;
+}
+.main a{
+  margin-right: 25px;
+  margin-left: 10px;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all .50s ease;
+}
+.user{
+  display: flex;
+  align-items: center;
+}
+.user i{
+  color: var(--main-color);
+  font-size: 28px;
+  margin-right: 7px;
+}
+.main a:hover{
+  color: var(--main-color);
+}
+#menu-icon{
+  font-size: 35px;
+  color: var(--text-color);
+  cursor: pointer;
+  z-index: 10001;
+  display: none;
+}
+@media (max-width: 1280px){
+  header{
+    padding: 14px 2%;
+    transition: .2s;
+  }
+  .navbar a{
+    padding: 5px 0;
+    margin: 0px 20px;
+  }
+}
+@media (max-width: 1090px){
+  #menu-icon{
     display: block;
-    color: rgb(59, 41, 41);
-    text-align: center;
-    padding: 15px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight:bolder;
   }
-  
-  .nav a:hover {
-    background-color: #ddd;
-    color: black;
+  .navbar{
+    display: absolute;
+    top: 100%;
+    right: -100%;
+    width: 270px;
+    height: 29vh;
+    background: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 34px;
+    background: linear-gradient(145deg, #44177b, #511c93);
+    box-shadow:  5px 5px 3px #3a1468, -5px -5px 3px #5e20aa;
+    transition: all .50s ease;
   }
-  
-  /* Adding an active class to highlight the current page */
-  .nav a.active {
-    background-color:#9FA4C4;
-    color:black;
+  .navbar.a{
+    display: block;
+    margin: 2px 0;
+    padding: 0px 25px;
+    transition: all .50s ease;
   }
-  .heading{
-    text-align:center; 
+  .navbar a:hover{
+    color: var(--text-color);
+    transform: translateY(5px);
   }
-  .content{
-    font-size: 20px; 
+  .navbar a.active{
+    color: var(--text-color);
   }
-  
-  
-  
-main {
-    padding: 20px;
+  .navbar.open{
+    right: 2%;
+  }
 }
 
-section {
-    margin-bottom: 40px;
-}
 
-footer {
-    text-align: center;
-    background-color: #444;
-    color: #fff;
-    padding: 10px;
-}
-
-@media only screen and (max-width : 200px) {
-    .nav {
- float:center;
-}}
