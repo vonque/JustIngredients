@@ -66,6 +66,7 @@ header {
   /* Center the header text */
   header h1, header p {
     margin: 0;
+    
   }
   
   /* Style the search section */
